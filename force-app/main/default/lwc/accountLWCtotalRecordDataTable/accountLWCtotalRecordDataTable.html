@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Account Total Records">
+        <div class="slds-m-left_medium">
+        <lightning-button variant="Brand" label="Show" onclick={showHandlerOnClick}></lightning-button>
+        <lightning-button variant="destructive" label="Hide" onclick={hideHandlerOnClick} class="hideClearButtonClass"></lightning-button>
+    </div>
+    <div class="slds-m-left_medium slds-m-right_medium custom-data-table">
+        <lightning-datatable
+                key-field="id"
+                data={accList}
+                columns={columns}
+                class={showDataTableClass}
+                >
+        </lightning-datatable>
+    </div>
+    </lightning-card>
+</template>

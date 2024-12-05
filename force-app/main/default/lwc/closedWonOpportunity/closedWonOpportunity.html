@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Opportunity Data Table" class="slds-m-left_medium slds-mm">
+        <div class="slds-m-around_large">
+        <lightning-combobox
+            label="Select Stage"
+            value={selectedStage}
+            options={stageOptions}
+            class="container"
+            onchange={handleStageChange}>
+        </lightning-combobox>
+        <lightning-datatable
+            key-field="Id"
+            data={opportunities}
+            columns={columns}
+            hide-checkbox-column="true">
+        </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

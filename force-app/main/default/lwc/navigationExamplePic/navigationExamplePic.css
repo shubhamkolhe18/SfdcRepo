@@ -1,0 +1,9 @@
+/* Add any styling here */
+.image-container {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}

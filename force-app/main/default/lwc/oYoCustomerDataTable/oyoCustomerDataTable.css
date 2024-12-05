@@ -1,0 +1,5 @@
+/* customDataTable.css */
+.slds-th__action.required::after {
+    content: " *";
+    color: red;
+}

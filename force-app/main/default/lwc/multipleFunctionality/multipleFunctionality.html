@@ -1,0 +1,225 @@
+<template>
+    <lightning-card title="Lightning Data Services Button" icon-name="standard:activations">
+        
+        <lightning-button
+                    class="slds-p-left_large"
+                    variant="destructive-text"
+                    onclick={showAccLds}
+                    label="Account"
+                ></lightning-button>
+
+        <lightning-button
+                    class="slds-p-left_large"
+                    variant="destructive-text"
+                    onclick={showConLds}
+                    label="Contact"
+               ></lightning-button>
+
+        <lightning-button
+                    class="slds-p-left_large"
+                    variant="destructive-text"
+                    onclick={showOppLds}
+                    label="Opportunity"
+               ></lightning-button>
+
+        <lightning-button
+                    class="slds-p-left_large"
+                    variant="destructive-text"
+                    onclick={showHide}
+                    label="Hide"
+               ></lightning-button>
+
+                                    
+    </lightning-card>
+    <lightning-card title="Account Form LDS" icon-name="standard:account" if:true={isAcc}>
+        <div class="slds-p-bottom_large slds-p-left_large" style="width:300px">
+            <lightning-record-edit-form object-api-name="Account">
+                <lightning-messages></lightning-messages>
+                <lightning-input-field field-name="Name"> </lightning-input-field>
+                <lightning-input-field field-name="Phone"> </lightning-input-field>
+                <lightning-input-field field-name="Rating"></lightning-input-field>
+                <lightning-input-field field-name="SLA__c"></lightning-input-field>
+                <br/>
+                <lightning-button
+                    variant="success"
+                    type="submit"
+                    name="submit"
+                    label="Create Account"
+                >
+                </lightning-button>
+                <lightning-button
+                    class="slds-float_right"
+                    variant="brand-outline"
+                    onclick={showAccRec}
+                    label="Show Accounts"
+               ></lightning-button>
+            </lightning-record-edit-form>
+            
+        </div>
+    </lightning-card>
+                                    
+    <lightning-card title="Contact Form LDS" icon-name="standard:account" if:true={isCon}>
+        <div class="slds-p-bottom_large slds-p-left_large" style="width:300px">
+            <lightning-record-edit-form object-api-name="Contact">
+                <lightning-messages></lightning-messages>
+                <lightning-input-field field-name="Name"> </lightning-input-field>
+                <lightning-input-field field-name="Phone"> </lightning-input-field>
+                <lightning-input-field field-name="Email"></lightning-input-field>
+                <lightning-input-field field-name="LeadSource"></lightning-input-field>
+                <br/>
+                <lightning-button
+                    variant="success"
+                    type="submit"
+                    name="submit"
+                    label="Create Contact">
+                </lightning-button>
+                <lightning-button
+                    class="slds-float_right"
+                    variant="brand-outline"
+                    onclick={showConRec}
+                    label="Show Contacts"
+               ></lightning-button>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+
+                                    
+    <lightning-card title="Opportunity Form LDS" icon-name="standard:opportunity" if:true={isOpp}>
+        <div class="slds-p-bottom_large slds-p-left_large" style="width:300px">
+            <lightning-record-edit-form object-api-name="Opportunity">
+                <lightning-messages></lightning-messages>
+                <lightning-input-field field-name="Name"> </lightning-input-field>
+                <lightning-input-field field-name="AccountId"> </lightning-input-field>
+                <lightning-input-field field-name="LeadSource"></lightning-input-field>
+                <lightning-input-field field-name="CloseDate"></lightning-input-field>
+                <lightning-input-field field-name="StageName"></lightning-input-field>
+                <lightning-input-field field-name="Type"></lightning-input-field>
+                <br/>
+                <lightning-button
+                    variant="success"
+                    type="submit"
+                    name="submit"
+                    label="Create Opportunity">
+                </lightning-button>
+                <lightning-button
+                    class="slds-float_right"
+                    variant="brand-outline"
+                    onclick={showOppRec}
+                    label="Show Opp"
+               ></lightning-button>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+
+                                    
+    <lightning-card title="Account Data Records" if:true={showAccountTableFlag} >
+    <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input
+                    type="search"
+                    data-formfield="accountName"
+                    label="Account Name"
+                    placeholder="Search Account..."
+                    class="slds-m-left_medium"
+                ></lightning-input>
+            </div>
+            <div class="slds-col slds-m-top_large slds-m-left_large">
+                <lightning-button
+                    variant="brand"
+                    label="Search"
+                    onclick={searchAccountHandler}
+                    
+                ></lightning-button>
+                <lightning-button
+                    variant="destructive"
+                    label="Clear"
+                    onclick={clearHandler}
+                    class="slds-m-left_large"
+                ></lightning-button>
+            </div>
+        </div>
+        <br />
+        <lightning-datatable
+            key-field="Id"
+            data={accList}
+            columns={columns}
+            draft-values={draftValues}
+            onrowselection={selectedRecordsHandler}
+            hide-checkbox-column >
+        </lightning-datatable>
+    </lightning-card>
+
+
+<lightning-card title="Contact Data Records" if:true={showContactTableFlag}>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-input
+                type="search"
+                data-formfield="contactName"
+                label="Contact Name"
+                placeholder="Search Contact..."
+                class="slds-m-left_medium"
+            ></lightning-input>
+        </div>
+        <div class="slds-col slds-m-top_large slds-m-left_large">
+            <lightning-button
+                variant="brand"
+                label="Search"
+                onclick={searchContactHandler}
+            ></lightning-button>
+            <lightning-button
+                variant="destructive"
+                label="Clear"
+                onclick={clearContactHandler}
+                class="slds-m-left_large"
+            ></lightning-button>
+        </div>
+    </div>
+    <br />
+    <lightning-datatable
+        key-field="Id"
+        data={conList}
+        columns={columns}
+        draft-values={draftValues}
+        onrowselection={selectedRecordsHandler}
+        hide-checkbox-column
+    ></lightning-datatable>
+</lightning-card>
+
+            
+    <lightning-card title="Opportunity Data Records" if:true={showOpportunityTableFlag}>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input
+                    type="search"
+                    data-formfield="opportunityName"
+                    label="Opportunity Name"
+                    placeholder="Search Opportunity..."
+                    class="slds-m-left_medium"
+                ></lightning-input>
+            </div>
+            <div class="slds-col slds-m-top_large slds-m-left_large">
+                <lightning-button
+                    variant="brand"
+                    label="Search"
+                    onclick={searchOpportunityHandler}
+                ></lightning-button>
+                <lightning-button
+                    variant="destructive"
+                    label="Clear"
+                    onclick={clearOpportunityHandler}
+                    class="slds-m-left_large"
+                ></lightning-button>
+            </div>
+        </div>
+        <br />
+        <lightning-datatable
+            key-field="Id"
+            data={oppList}
+            columns={columns}
+            draft-values={draftValues}
+            onrowselection={selectedRecordsHandler}
+            hide-checkbox-column
+        ></lightning-datatable>
+    </lightning-card>
+</template>

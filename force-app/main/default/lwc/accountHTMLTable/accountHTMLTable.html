@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="Account HTML Table" class="slds-brand-band slds-brand-band_large">
+        <lightning-input type="search" data-formfield="accountName" placeholder="Search Account Name..."
+                            class="slds-m-left_medium slds-m-right_medium" ></lightning-input><br/>
+        <lightning-button variant="Brand" icon-name="utility:search" label="Search" onclick={searchAccountHandler}
+                            class="slds-m-left_medium"></lightning-button> <br/>
+
+    <template if:true={showAccountTableFlag}> 
+        <!-- Account HTML Table START-->
+        <table class="slds-table slds-table--bordered slds-table--striped">
+            <thead>
+                <tr>
+                    <th scope="col"><span class="slds-truncate" >Name</span></th>
+                    <th scope="col"><span class="slds-truncate">Type</span></th>
+                    <th scope="col"><span class="slds-truncate" >SLA</span></th>
+                    <th scope="col"><span class="slds-truncate">Rating</span></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td> {accountObject.Name} </td>
+                    <td> {accountObject.Type} </td>
+                    <td> {accountObject.SLA__c} </td>
+                    <td> {accountObject.Rating} </td>
+                </tr>
+
+            </tbody>
+
+
+        </table>
+    </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,65 @@
+<template>
+    <lightning-card title="Lightning Data Services Button" icon-name="standard:activations">
+        
+        <lightning-button
+                    class="slds-p-left_large"
+                    variant="destructive-text"
+                    onclick={showAccLds}
+                    label="Account"
+                ></lightning-button>
+
+        <lightning-button
+                    class="slds-p-left_large"
+                    variant="destructive-text"
+                    onclick={showConLds}
+                    label="Contact"
+               ></lightning-button>
+
+        <lightning-button
+                    class="slds-p-left_large"
+                    variant="destructive-text"
+                    onclick={showHide}
+                    label="Hide"
+               ></lightning-button>
+
+
+    </lightning-card>
+    <lightning-card title="Account Form LDS" icon-name="standard:account" if:true={isAcc}>
+        <div class="slds-p-bottom_large slds-p-left_large" style="width:300px">
+            <lightning-record-edit-form object-api-name="Account">
+                <lightning-messages></lightning-messages>
+                <lightning-input-field field-name="Name"> </lightning-input-field>
+                <lightning-input-field field-name="Phone"> </lightning-input-field>
+                <lightning-input-field field-name="Rating"></lightning-input-field>
+                <lightning-input-field field-name="SLA__c"></lightning-input-field>
+
+                <lightning-button
+                    variant="success"
+                    type="submit"
+                    name="submit"
+                    label="Create Account"
+                >
+                </lightning-button>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+    <br/>
+    <lightning-card title="Contact Form LDS" icon-name="standard:account" if:true={isCon}>
+        <div class="slds-p-bottom_large slds-p-left_large" style="width:300px">
+            <lightning-record-edit-form object-api-name="Contact">
+                <lightning-messages></lightning-messages>
+                <lightning-input-field field-name="Name"> </lightning-input-field>
+                <lightning-input-field field-name="Phone"> </lightning-input-field>
+                <lightning-input-field field-name="Email"></lightning-input-field>
+                <lightning-input-field field-name="LeadSource"></lightning-input-field>
+
+                <lightning-button
+                    variant="brand"
+                    type="submit"
+                    name="submit"
+                    label="Create Contact">
+                </lightning-button>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Parent Component">
+      
+        <lightning-input data-formfield="accountName" type="text" label="Enter some text"></lightning-input>
+        <lightning-button variant="Brand" label="Send" name="Send" onclick={handleSendButton} icon-name="utility:send"></lightning-button>
+        <lightning-button variant="destructive" label="Clear" name="Clear" onclick={handleClearButton} icon-name="Action:remove"></lightning-button>
+
+
+        <!--Calling Chlid Component-->
+        <c-car-child name={myAccount}></c-car-child>
+
+    </lightning-card>
+</template>

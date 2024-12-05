@@ -1,0 +1,46 @@
+<template>
+
+    <lightning-card title="Account search by type">
+
+        <lightning-combobox
+            name="accountType"
+            label="Select Account Type"
+            value={value}
+            placeholder="Select Account Type"
+            options={typeOptions}
+            onchange={handleTypeChange} 
+            class="slds-m-left_medium slds-m-right_medium"></lightning-combobox> <br/>
+            <div class="slds-m-left_medium">
+            Total Account Found = {accRecordCount} 
+            </div><br/>
+            <!--Account HTML Table Start-->
+
+        <table class="slds-table slds-table--bordered slds-table--striped">
+            <thead>
+                <tr>
+                    <th scope="col"><span class="slds-truncate"> Name </span></th>
+                    <th scope="col"><span class="slds-truncate"> Type </span></th>
+                    <th scope="col"><span class="slds-truncate"> Rating </span></th>
+                    <th scope="col"><span class="slds-truncate"> SLA </span></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <template for:each={accList} for:item="objAcc">
+                    <tr key={objAcc.Id}>
+                        <td > {objAcc.Name}   </td> 
+                        <td > {objAcc.Type}   </td> 
+                        <td > {objAcc.Rating}   </td> 
+                        <td > {objAcc.SLA__c}   </td>                            
+               </tr>
+
+                </template>
+
+            </tbody>
+
+        </table>
+        <!--Account HTML Table End Here-->
+
+    </lightning-card>
+    
+</template>

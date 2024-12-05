@@ -1,0 +1,77 @@
+<template>
+    
+<lightning-card title="CRUD Operation">
+
+    <lightning-button variant="brand" icon-name="utility:record_create" 
+                      label="CREATE" onclick={createButtonHandler} ></lightning-button> &nbsp;
+
+    <lightning-button variant="success" icon-name="utility:search" label="SEARCH"
+                         onclick={searchButtonHandler} ></lightning-button>&nbsp;
+
+    <lightning-button variant="brand-outline" icon-name="utility:edit" label="EDIT"
+                         onclick={editButtonHandler} ></lightning-button>&nbsp;
+
+    <lightning-button variant="destructive" icon-name="utility:delete" label="DELETE"
+                         onclick={deleteButtonHandler} ></lightning-button> <br/>
+
+
+    <!--Undelete Button Start-->
+    <lightning-button variant="brand-outline" icon-name="utility:undelete" label="UNDELETE RECORD" 
+                         onclick={undeleteRecordButtonHandler} ></lightning-button>&nbsp;
+    <!--Undelete Button Stop-->
+
+    <!--Create button start-->
+
+    <template if:true={showCreateFieldsFlag}>
+
+        <lightning-input data-formfield="accountName" label="Enter Account Name" type="text" required=true
+                         class="slds-m-left_medium slds-m-right_medium"></lightning-input> <br/>
+
+    <lightning-combobox
+            name="accType"
+            label="Enter Type"
+            value={value}
+            placeholder="Select Type"
+            options={typeOptions}
+            onchange={typeHandleChange}
+            class="slds-m-left_medium slds-m-right_medium" ></lightning-combobox>
+
+            <lightning-combobox
+            name="accSLA"
+            label="Enter SLA"
+            value={value}
+            placeholder="Select SLA"
+            options={slaOptions}
+            onchange={slaHandleChange} 
+            class="slds-m-left_medium slds-m-right_medium"></lightning-combobox> <br/>
+
+            <lightning-button variant="brand" icon-name="utility:record_create" label="CREATE RECORD" onclick={createAccountButtonHandler} 
+                              class="slds-m-left_medium"></lightning-button> &nbsp;
+    </template>
+    <!--Create button End-->
+    <!--Search button Start-->
+
+        <template if:true={showSearchFieldsFlag}>
+            <lightning-input data-formfield="accountName" label="Enter Account Name" type="text" required=true
+                             class="slds-m-left_medium slds-m-right_medium"></lightning-input> <br/>
+            <lightning-input data-formfield="accountType" label="Type" type="text" value={accountObject.Type}
+                             class="slds-m-left_medium slds-m-right_medium" disabled={disableAccountTypeFieldFlag} ></lightning-input> <br/>
+            <lightning-input data-formfield="accountSLA" label="SLA" type="text" value={accountObject.SLA__c}
+                             class="slds-m-left_medium slds-m-right_medium" disabled={disableAccountSLAFieldFlag} ></lightning-input> <br/>
+
+    
+            <lightning-button variant="success" icon-name="utility:search" label="SEARCH RECORD" onclick={searchRecordButtonHandler} class="slds-m-left_medium"></lightning-button>&nbsp;
+
+            </template>
+    <!--Search button End-->
+
+        <!--Update / Edit Button Start-->
+    <template if:true={showUpdateButtonFlag}>   
+        <lightning-button variant="brand-outline" icon-name="utility:record_update" label="UPDATE RECORD" onclick={updateRecordButtonHandler} ></lightning-button>&nbsp;
+    </template> 
+    <!--Update / Edit Button End-->
+
+    
+</lightning-card>
+
+</template>

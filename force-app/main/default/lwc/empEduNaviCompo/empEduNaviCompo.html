@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Educational Details">
+        <div class="slds-m-left_small slds-size_1-of-3">
+        <lightning-input data-id="eduHigh" type="text" label="Highest Qualification" placeholder="type here..." value={eduHigh} onchange={handleHighQlfChange}></lightning-input></br>
+        <lightning-input data-id="eduClg" type="text" label="College Name" placeholder="type here..." value={eduClg} onchange={handleClgChange}></lightning-input></br>
+        <lightning-input data-id="eduUni" type="text" label="Univesity Name" placeholder="type here..." value={eduUni} onchange={handleUniChange}></lightning-input></br>
+        </div>
+        <div class="slds-m-left_small">
+        <lightning-button variant="brand" label="Submit"  onclick={handleSubmitClick}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

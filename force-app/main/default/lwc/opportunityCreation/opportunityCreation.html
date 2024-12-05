@@ -1,0 +1,38 @@
+<template>
+<div if:true={ifTrueCondition}>
+    <lightning-card title="Opp Creation">
+
+        <lightning-input data-id="oppName" label="Opportunity Name" type="text" class="slds-m-left_medium slds-m-right_small" required></lightning-input>
+
+        <lightning-combobox
+            name="StageName"
+            label="Stage Name"
+            value={value}
+            options={stageOptions}
+            onchange={handleStageChange}
+            class="slds-m-left_medium slds-m-right_small" ></lightning-combobox>
+
+        
+            <lightning-combobox
+            name="Type"
+            label="Type"
+            value={value}
+            options={typeOptions}
+            onchange={handleTypeChange}
+            class="slds-m-left_medium slds-m-right_small" ></lightning-combobox>
+            <br/>
+
+            <lightning-combobox
+            name="LeadSource"
+            label="Lead Source"
+            value={value}
+            options={leadSourceOptions}
+            onchange={handleLeadSourceChange}
+            class="slds-m-left_medium slds-m-right_small" ></lightning-combobox>
+            <br/>
+
+            <lightning-button variant="Success" label="Save" title="Primary action" onclick={handleSaveClick} class="slds-m-left_medium"></lightning-button>
+
+    </lightning-card>
+    </div>
+</template>

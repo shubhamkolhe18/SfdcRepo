@@ -1,0 +1,69 @@
+<template>
+    <div class="slds-box slds-theme_default">
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="3" padding="around-small">
+                <div class="slds-is-fixed">
+                    <nav class="slds-nav-vertical" aria-label="Sub page">
+                        <div class="slds-nav-vertical__section">
+                            <h2 id="entity-header" class="slds-nav-vertical__title">Reports</h2>
+                            <ul aria-describedby="entity-header">
+                                <li class="slds-nav-vertical__item">
+                                    <a href="#c1" class="slds-nav-vertical__action" aria-current="true" data-onclick={showAccount}>
+                                        <lightning-icon icon-name="standard:account" size="small" class="slds-m-right_x-small"></lightning-icon>
+                                        Account
+                                    </a>
+                                </li>
+                                <li class="slds-nav-vertical__item">
+                                    <a href="#c2" class="slds-nav-vertical__action" data-onclick={showOpportunity}>
+                                        <lightning-icon icon-name="standard:opportunity" size="small" class="slds-m-right_x-small"></lightning-icon>
+                                        Opportunity
+                                    </a>
+                                </li>
+                                <li class="slds-nav-vertical__item">
+                                    <a href="#c3" class="slds-nav-vertical__action" data-onclick={showLead}>
+                                        <lightning-icon icon-name="standard:lead" size="small" class="slds-m-right_x-small"></lightning-icon>
+                                        Lead
+                                    </a>
+                                </li>
+                                <li class="slds-nav-vertical__item">
+                                    <a href="#c4" class="slds-nav-vertical__action" data-onclick={showEmployee}>
+                                        <lightning-icon icon-name="standard:employee" size="small" class="slds-m-right_x-small"></lightning-icon>
+                                        Employee Details
+                                    </a>
+                                </li>
+                                <li class="slds-nav-vertical__item">
+                                    <a href="#" class="slds-nav-vertical__action">
+                                        <lightning-icon icon-name="utility:custom" size="small" class="slds-m-right_x-small"></lightning-icon>
+                                        Oyo Records
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- ... (Folder section) ... -->
+                    </nav>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="6">
+                <div id="c1"><c-account-creation></c-account-creation></div> </br>
+                <div id="c2" class="slds-p-top_xx_large">
+                    <br/><br/><br/><br/><br/>
+                    <div class="slds-p-top_xx_large">
+                        <c-opportunity-Creation></c-opportunity-Creation>
+                    </div>
+                </div> </br>
+                <div id="c3">
+                    <br/><br/><br/><br/><br/>
+                    <div class="slds-p-top_xx_large">
+                        <c-quick-lead-creation></c-quick-lead-creation>
+                    </div>
+                </div> </br>
+                <div id="c4">
+                    <br/><br/><br/><br/><br/>
+                    <div class="slds-p-top_xx_large">
+                        <c-emp-personal-info></c-emp-personal-info>
+                    </div>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

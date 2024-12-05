@@ -1,0 +1,35 @@
+<apex:page controller="MenuOrderProvider" showHeader="true" sidebar="false">
+    <apex:includeLightning />
+
+    <div class="slds-p-around_medium">
+        <lightning-card title="Kitchen Order Display">
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>
+                        <th scope="col">Order Name</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!kitchenOrders}" var="order">
+                        <tr>
+                            <td>{!order.Name}</td>
+                            <td>{!order.Status__c}</td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </lightning-card>
+    </div>
+
+    <script>
+        $Lightning.use("c:App", function() {
+            $Lightning.createComponent("c:KitchenOrderDisplay", {},
+                "auraAppContainer",
+                function(cmp) {
+                    // Component was created
+                }
+            );
+        });
+    </script>
+</apex:page>

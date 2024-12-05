@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Emp Record">
+        <lightning-input type="text" data-formfield="empName" placeholder="type here..." class="slds-size_2-of-3 slds-m-left_x-small"></lightning-input><br/>
+        <lightning-button variant="success" label="Search" title="Search" onclick={handleSearchClick} class="slds-m-left_x-small"></lightning-button>
+        <br/><br/>
+
+        Emp ID          :  {employeeObject.Name} <br/>
+        Emp Name        :  {employeeObject.Employee_Name__c} <br/>
+        Mobile          :  {employeeObject.Mobile__c} <br/>
+        Address         :  {employeeObject.Address__c} <br/>
+    </lightning-card>
+</template>

@@ -1,0 +1,10 @@
+.container{
+	color : blue;
+	font-size: bold;
+}
+
+.slds-mm{
+	color: red;
+	background-color: yellowgreen;
+	position: center;
+}
