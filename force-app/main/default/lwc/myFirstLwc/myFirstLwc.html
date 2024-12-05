@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="New Account Record">
+
+        <lightning-input data-formfield="accName" type="text" placeholder="Search Name..." class="slds-p-around_medium slds-m-right_small"></lightning-input>
+
+        <lightning-combobox
+            name="Rating"
+            value={value}
+            placeholder="Select Rating..."
+            options={ratingOptions}
+            onchange={handleRatingChange}
+            class="slds-p-around_medium slds-m-right_small" ></lightning-combobox>
+
+            <lightning-combobox
+            name="Type"
+            value={value}
+            placeholder="Select Type..."
+            options={typeOptions}
+            onchange={handleTypeChange} 
+            class="slds-p-around_medium slds-m-right_small"></lightning-combobox>
+
+        <lightning-button variant="brand" label="Save" title="Save" onclick={handleSaveClick} class="slds-p-around_medium"></lightning-button>
+
+    </lightning-card>
+</template>

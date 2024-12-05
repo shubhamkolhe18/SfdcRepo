@@ -1,0 +1,8 @@
+<template>
+    <lightning-card title="Personal Information">
+        <lightning-input data-id="empName" type="text" label="Name" placeholder="type here..." value={empName} onchange={handleNameChange}></lightning-input>
+        <lightning-input data-id="empTech" type="text" label="Technology" placeholder="type here..." value={empTech} onchange={handleTechChange}></lightning-input>
+        <br/>
+        <lightning-button variant="success" label="Submit" onclick={handleSubmitClick}></lightning-button>
+    </lightning-card>
+</template>

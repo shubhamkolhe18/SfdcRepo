@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Account Record Search By Alphabets" class="slds-border_top">
+        <lightning-input variant="Search" label="Account search" data-formfield="accountName"
+            placeholder="Search here..." onchange={nameHandler} class="slds-m-left_medium slds-m-right_medium">
+        </lightning-input> <br/>
+
+        <table class="slds-table slds-table--bordered slds-table--striped">
+            <thead>
+                <tr>
+                    <th scope="col"><span class="slds-truncate">Name</span></th>
+                    <th scope="col"><span class="slds-truncate">Type</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={accounts} for:item="account">
+                    <tr key={account.Id}>
+                        <td><span class="slds-truncate">{account.Name}</span></td>
+                        <td><span class="slds-truncate">{account.Type}</span></td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+</template>

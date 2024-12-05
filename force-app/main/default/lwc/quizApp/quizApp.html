@@ -1,0 +1,52 @@
+<template>
+    <lightning-card title="Mini Quiz Game">
+        <lightning-layout>
+            <lightning-layout-item size="6">
+                <lightning-input data-formfield="appName" type="text" 
+                                label="Applicant Name" 
+                                value={applicantName} 
+                                placeholder="type here..."
+                                onchange={handleNameChange} 
+                                disabled={disableApplicantNameFieldFlag}
+                                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="6">
+                <div class="slds-m-top_large">
+                <lightning-button variant="brand" label="Submit" title="Submit" onclick={submitNamehandler} class="slds-m-left_x-large"></lightning-button>
+                <lightning-button variant="destructive-text" label="Cancel" title="Cancel" onclick={cancelButtonhandler} class="slds-m-left_x-large"></lightning-button>
+            </div>
+            </lightning-layout-item>
+        </lightning-layout> <br/>
+        
+        <div if:true={showQuestionPage}>
+        <h1 class="slds-bold">Question 1</h1>
+        <h2>What is the capital of Madhya Pradesh?</h2>
+        <lightning-radio-group name="question1"
+                              label="Answers"
+                              options={ques1options}
+                              value={selectedAnswers.question1}
+                              type="radio" onchange={handleRadioChange}></lightning-radio-group>
+        <br/>
+        <div class="slds-border_top"></div> <br/>
+        <h1 class="slds-bold">Question 2</h1>
+        <h2>What is the capital of India?</h2>
+        <lightning-radio-group name="question2"
+                              label="Answers"
+                              options={ques2options}
+                              value={selectedAnswers.question2}
+                              type="radio" onchange={handleRadioChange}></lightning-radio-group>
+        <br/>
+        <lightning-button variant="brand" label="Save" title="Save" onclick={saveAnswerHandler} disabled={isSaveButtonDisabled}></lightning-button>
+        <lightning-button variant="destructive" label="Reset" title="Reset" onclick={resethandler} class="slds-m-left_x-large"></lightning-button>
+    </div>
+
+    <div if:true={showCorrectAnswer}>
+        <h3 class="slds-h3">You Have Answered</h3> <br/>
+        <b>Answered : </b> <h4 class="slds-h4">{answer1}</h4>
+        <b>Correct Answer : </b> <h5 class="slds-h5">Bhopal</h5> 
+    <div class="slds-border_top slds-m-vertical_large"></div>
+        <b>Answered : </b> <h6 class="slds-h6">{answer2}</h6>
+        <b>Correct Answer : </b><h7 class="slds-h7">New Delhi</h7>
+    </div>
+    </lightning-card>
+</template>

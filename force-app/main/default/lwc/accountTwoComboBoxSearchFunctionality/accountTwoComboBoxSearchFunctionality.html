@@ -1,0 +1,46 @@
+<template>
+    <div class="container">
+        <lightning-card title="Account Two Combo Cox Search Table">
+            <div class="combobox-container">
+                <lightning-combobox
+                    name="accountType"
+                    label="Type"
+                    value={value}
+                    placeholder="Select account Type"
+                    options={typeOptions}
+                    onchange={handleTypeChange}
+                    class="slds-combobox"></lightning-combobox>
+
+                <lightning-combobox
+                    name="accountSLA"
+                    label="SLA"
+                    value={value}
+                    placeholder="Select SLA"
+                    options={optionsSLA}
+                    onchange={handleSLAChange}
+                    class="slds-combobox"></lightning-combobox>
+            </div>
+
+            <table class="slds-table slds-table--bordered slds-table--striped">
+                <thead>
+                    <tr>
+                        <th scope="col"><span class="slds-truncate"> Name </span></th>
+                        <th scope="col"><span class="slds-truncate"> Type </span></th>
+                        <th scope="col"><span class="slds-truncate"> Rating </span></th>
+                        <th scope="col"><span class="slds-truncate"> SLA </span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={accList} for:item="objAcc">
+                        <tr key={objAcc.Id}>
+                            <td>{objAcc.Name}</td>
+                            <td>{objAcc.Type}</td>
+                            <td>{objAcc.Rating}</td>
+                            <td>{objAcc.SLA__c}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </lightning-card>
+    </div>
+</template>

@@ -1,0 +1,59 @@
+/* Add your custom styles for the login component here */
+
+/* Container for the login form */
+.cCommunityLoginCompo {
+  max-width: 200px; /* Updated max-width to 200px */
+  margin: 0 auto;
+  padding: 10px; /* Updated padding to decrease height */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Headline */
+.cCommunityLoginCompo h2 {
+  font-size: 18px; /* Updated font size to make the headline smaller */
+  margin-bottom: 10px; /* Updated margin to decrease height */
+  text-align: center;
+}
+
+/* Labels */
+.cCommunityLoginCompo label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Input fields */
+.cCommunityLoginCompo input[type="text"],
+.cCommunityLoginCompo input[type="password"] {
+  width: 100%;
+  padding: 5px; /* Updated padding to decrease height */
+  margin-bottom: 5px; /* Updated margin to decrease height */
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Login button */
+.cCommunityLoginCompo button {
+  width: 100%;
+  padding: 8px; /* Updated padding to decrease height */
+  background-color: #0070d2;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cCommunityLoginCompo button:hover {
+  background-color: #005fac;
+}
+
+/* Center the component on the page */
+.cCommunityLoginCompo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh; /* Updated height to 70vh */
+}

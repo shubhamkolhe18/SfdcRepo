@@ -1,0 +1,107 @@
+<template>
+    
+    <div class=" slds-box slds-theme_default">
+        <lightning-layout multiple-rows>
+            <lightning-layout-item padding="around-small" size="6">
+                
+                <div class="slds-is-fixed">
+                    <br/><br/>
+                    <template if:true={showNavigationBar}>
+                        <nav class="slds-nav-vertical slds-navibar" aria-label="Sub page">
+                            <br/><br/>
+                            <div class="slds-nav-vertical__section slds-lenght">
+                                
+                                <h2 id="entity-header" class="slds-nav-vertical__title slds-nav"><div onclick={showNavi} class="heading"> Navigation Examples</div></h2>
+                                
+                                <ul aria-describedby="entity-header" class="white-background">
+                                    <li class="slds-nav-vertical__item slds-is-active">
+                                        <a href="#"  onclick={showNavi} class="slds-nav-vertical__action" aria-current="true">LWC Functionality</a>
+                                    </li>
+                                    <li class="slds-nav-vertical__item">
+                                        <a href="#c1" onclick={showRecord} class="slds-nav-vertical__action">Record Send</a>
+                                    </li>
+                                    <li class="slds-nav-vertical__item">
+                                        <a href="#c2" onclick={showLead} class="slds-nav-vertical__action">Lead Creation</a>
+                                    </li>
+                                    <li class="slds-nav-vertical__item">
+                                        <a href="#c3" onclick={showCarousel} class="slds-nav-vertical__action">Carousel</a>
+                                    </li>
+                                    <li class="slds-nav-vertical__item">
+                                        <a href="#c4" onclick={showOpp} class="slds-nav-vertical__action"> SFDC Einstine Pic</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="slds-nav-vertical__section">
+                                <h2 id="folder-header" class="slds-nav-vertical__title">Folders</h2>
+                                <ul aria-describedby="folder-header">
+                                    <li class="slds-nav-vertical__item">
+                                        <a href="#c5    " onclick={showObjNav} class="slds-nav-vertical__action">Object Navigation</a>
+                                    </li>
+                                    <li class="slds-nav-vertical__item">
+                                        <a href="#c6" onclick={showNameNav} class="slds-nav-vertical__action">Object Name Page</a>
+                                    </li>
+                                    <li class="slds-nav-vertical__item">
+                                        <a href="#" class="slds-nav-vertical__action">All Reports</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </template>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="4">
+
+                <template if:true={isRecord}>
+                    <div id="c1"><c-model-Parent></c-model-Parent></div>
+                </template>
+                <template if:false={isRecord}>
+                    <!-- Any content you want to display when isRecord is false -->
+                </template>
+                
+                <template if:true={isLead}>
+                    <div id="c2" class="slds-p-top_xx_large">
+                        <c-quick-Lead-Creation></c-quick-Lead-Creation>
+                    </div>
+                </template>
+                <template if:false={isLead}>
+                    <!-- Any content you want to display when isLead is false -->
+                </template>
+
+                <template if:true={isCarousel}>
+                    <div id="c3" class="slds-p-top_xx_large">
+                        <c-hello-World></c-hello-World>
+                    </div>
+                </template>
+                <template if:false={isCarousel}>
+                    <!-- Any content you want to display when isCarousel is false -->
+                </template>
+
+                <template if:true={isOpp}>
+                    <div id="c4" class="slds-p-top_xx_large">
+                        <c-navigation-example-pic></c-navigation-example-pic>
+                    </div>
+                </template>
+                <template if:false={isOpp}>
+                    <!-- Any content you want to display when isOpp is false -->
+                </template>
+
+                <template if:true={isObj}>
+                    <div id="c5" class="slds-p-top-xx_large">
+                        <c-nav-to-object-page></c-nav-to-object-page>
+                    </div>
+                </template>
+                <template if:false={isObj}>
+                </template>
+
+                <template if:true={isNameNav}>
+                    <div id="c6" class="slds-p-top-xx_large">
+                        <c-nav-to-name-page></c-nav-to-name-page>
+                    </div>
+                </template>
+                <template if:false={isNameNav}>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+    
+</template>

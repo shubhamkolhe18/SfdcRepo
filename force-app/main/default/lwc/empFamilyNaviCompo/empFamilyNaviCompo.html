@@ -1,0 +1,13 @@
+<template>
+<lightning-card title="Family Details">
+    <div class="slds-m-left_small slds-size_1-of-3">
+        <lightning-input data-id="eduFathName" type="text" label="Father's Name" placeholder="type here..." value={eduFathName} onchange={handleFNChange}></lightning-input></br>
+        <lightning-input data-id="eduFathOcc" type="text" label="Father's Occupation" placeholder="type here..." value={eduFathOcc} onchange={handleFOChange}></lightning-input></br>
+        <lightning-input data-id="eduMothName" type="text" label="Mother's Name" placeholder="type here..." value={eduMothName} onchange={handleMNChange}></lightning-input></br>
+        <lightning-input data-id="eduMothOcc" type="text" label="Mother's Occupation" placeholder="type here..." value={eduMothOcc} onchange={handleMOChange}></lightning-input></br>
+    </div>
+    <div class="slds-m-left_small">
+        <lightning-button variant="success" label="Submit"  onclick={handleSubmitClick}></lightning-button>
+    </div>
+    </lightning-card>
+</template>

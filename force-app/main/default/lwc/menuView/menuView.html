@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Available Menus">
+        <template if:true={menus}>
+            <ul class="slds-list_dotted">
+                <template for:each={menus} for:item="menu">
+                    <li key={menu.Id} onclick={handleMenuSelection} data-menu-id={menu.Id}>
+                        <b>{menu.Name}</b><br />
+                        {menu.Description__c}<br />
+                        <span class={menu.Active}>
+                           </span>
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <template if:false={menus}>
+            No menus available.
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Account Contact Search">
+        <lightning-input data-formfield="accountName" type="text" placeholder="Enter Name"></lightning-input>
+        <lightning-button variant="brand" label="Search" onclick={searchHandler}></lightning-button>
+
+        <!--Calling Contact as Child Component-->
+
+    <c-contact-child-compo acc-list ={accountList} > </c-contact-child-compo>
+
+    </lightning-card>
+    
+</template>

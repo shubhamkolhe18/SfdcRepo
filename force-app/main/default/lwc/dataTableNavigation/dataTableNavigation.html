@@ -1,0 +1,20 @@
+<template>
+    <div class="container">
+        <ul>
+            <li>
+                <a onclick={showAccount}> <b>Lead Create</b></a>
+            </li>
+            <br/>
+            <li>
+                <a onclick={showOpportunity}> <b>  CRUD Compo</b></a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <!-- Render the selected component -->
+        <template if:true={showComponent}>
+            <c-quick-lead-creation if:true={showComponentA}></c-quick-lead-creation>
+            <c-crud-operation if:true={showComponentB}></c-crud-operation>
+        </template>
+    </div>
+</template>
