@@ -60,7 +60,7 @@ export default class AccountLWCdataTable extends LightningElement {
             console.error(error);
         }
     }
-
+    // using connectedCallback to load the CSS file
     connectedCallback() {
         if (this.isCssLoaded) return;
         this.isCssLoaded = true;
