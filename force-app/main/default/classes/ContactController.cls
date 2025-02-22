@@ -10,8 +10,8 @@ public class ContactController {
         insert newContact;
     }
 
-    @AuraEnabled
-    public static List<Contact> retrieveContact() {
-        return [Select id,Name, Phone, LeadSource, Title from Contact];
+    @AuraEnabled(cacheable=true)
+    public static List<Contact> getContact() {
+        return [SELECT Id, Name, Phone, LeadSource, Title FROM Contact];
     }
 }

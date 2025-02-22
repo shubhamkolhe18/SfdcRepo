@@ -1,5 +1,5 @@
 trigger CaseTrigger on Case (after insert) {
-	
+    
     Map<Id, String> accountToLatestCaseMap = new Map<Id, String>();
     
     for(Case c : Trigger.new){
